@@ -1,0 +1,96 @@
+
+Information page:
+https://www.guru99.com/scroll-up-down-selenium-webdriver.html
+
+
+*********************************************************************
+****To scroll down the web page by the visibility of the element.****
+*********************************************************************
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class ScrollByVisibleElement {
+
+    WebDriver driver;
+    @Test
+    public void ByVisibleElement() {
+        System.setProperty("webdriver.chrome.driver", "G://chromedriver.exe");
+        driver = new ChromeDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        //Launch the application		
+        driver.get("http://demo.guru99.com/test/guru99home/");
+
+        //Find element by link text and store in variable "Element"        		
+        WebElement Element = driver.findElement(By.linkText("Linux"));
+
+        //This will scroll the page till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+    }
+}
+
+
+*********************************************************************
+*******To scroll down the web page at the bottom of the page.********
+*********************************************************************
+
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class ScrollByPage {
+
+    WebDriver driver;
+    @Test
+    public void ByPage() {
+        System.setProperty("webdriver.chrome.driver", "E://Selenium//Selenium_Jars//chromedriver.exe");
+        driver = new ChromeDriver();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Launch the application		
+        driver.get("http://demo.guru99.com/test/guru99home/");
+
+        //This will scroll the web page till end.		
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+}
+
+
+*********************************************************************
+*************** Horizontal scroll on the web page. ******************
+*********************************************************************
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class HorizontalScroll {
+
+    WebDriver driver;
+    @Test
+    public void ScrollHorizontally() {
+        System.setProperty("webdriver.chrome.driver", "E://Selenium//Selenium_Jars//chromedriver.exe");
+        driver = new ChromeDriver();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Launch the application		
+        driver.get("http://demo.guru99.com/test/guru99home/scrolling.html");
+
+        WebElement Element = driver.findElement(By.linkText("VBScript"));
+
+        //This will scroll the page Horizontally till the element is found		
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+    }
+}
